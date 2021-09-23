@@ -1,0 +1,30 @@
+to run image from docker quickstart terminal:- docker run -d -p 5000:5000 testimage1 (for port 5000)
+go to url:- http://192.168.99.100:5000/
+
+necessary file requirement:-index.py
+                            Dockerfile
+			    requirements.txt
+
+to build dockerimage:- docker build -t testimage .  (testimage is the name we give)
+ 
+to create a container and run image from vscode - docker run --name testcontainer1 -p 5000:5000 testimage1 (but prefer from docker terminal)
+
+in docker terminal:-
+                  to check running container:- docker ps
+	          to check all container:- docker ps --all
+	          to stop a container:- docker stop containerId
+		  to remove a container:- docker rm containerId
+		  to delete all containers:- docker rm -f $(docker ps -a -q)    [all not running containers]
+		  to remove a image:- docker rmi ImageId
+
+to push an image:- Go to docker hub
+		   create a repo
+		   then in terminal:- docker tag testimage1 shreenath2001/testimagerepo:hubtest [testimage1 - image
+												 shreenath2001/testimagerepo - repo
+												 hubtest - name of tag]
+		   then do:-docker push shreenath2001/testimagerepo:hubtest
+		   these tag serves as different versions, i.e., when next time we modify our image, we can again send it to the same repo 
+	           with a different version.
+
+whenever we have update in our code, just update the Dockerfile, and build an image and create a new container.
+		   
